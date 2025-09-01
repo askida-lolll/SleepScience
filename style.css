@@ -135,7 +135,7 @@
     @keyframes pulse { 0%,100% { transform: scale(1.2); } 50% { transform: scale(1.8); } }
 
     /* tooltip info inside each program (kept your style) */
-    .info { opacity: 0; max-height: 0; transition: all 0.5s ease; font-size: 0.9rem; font-weight: 400; margin-top: 10px; color: #333; }
+    .info { opacity: 0; max-height: 0; transition: all 0.9s ease; font-size: 0.9rem; font-weight: 400; margin-top: 10px; color: #333; }
     .program:hover .info { opacity: 1; max-height: 200px; }
 
     /* ======= Back button (restored into footer as before, and styled) ======= */
