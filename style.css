@@ -116,13 +116,19 @@
       transform: translateY(-6px) scale(1.03);
       box-shadow: 0 8px 20px rgba(0,0,0,0.18);
     }
-    @keyframes blobFlow {
-      0%   { border-radius: 60% 40% 50% 70% / 50% 60% 40% 60%; }
-      25%  { border-radius: 50% 60% 40% 70% / 60% 50% 70% 40%; }
-      50%  { border-radius: 70% 50% 60% 40% / 40% 70% 50% 60%; }
-      75%  { border-radius: 40% 70% 60% 50% / 70% 40% 60% 50%; }
-      100% { border-radius: 60% 40% 50% 70% / 50% 60% 40% 60%; }
-    }
+  @keyframes blobFlowFull {
+    0%   { border-radius: 60% 40% 50% 70% / 50% 60% 40% 60%; }
+    10%  { border-radius: 65% 35% 60% 40% / 45% 65% 55% 35%; }
+    20%  { border-radius: 55% 45% 70% 30% / 60% 40% 70% 50%; }
+    30%  { border-radius: 70% 30% 50% 60% / 55% 65% 45% 35%; }
+    40%  { border-radius: 50% 70% 40% 60% / 65% 45% 35% 55%; }
+    50%  { border-radius: 40% 60% 70% 50% / 70% 50% 60% 40%; }
+    60%  { border-radius: 65% 35% 55% 45% / 35% 55% 65% 45%; }
+    70%  { border-radius: 55% 45% 60% 40% / 60% 50% 40% 70%; }
+    80%  { border-radius: 70% 40% 50% 60% / 40% 70% 50% 60%; }
+    90%  { border-radius: 45% 55% 65% 35% / 55% 35% 65% 45%; }
+    100% { border-radius: 60% 40% 50% 70% / 50% 60% 40% 60%; }
+  }
 
     /* program icon pulse (small) */
     .program .icon { display:block; font-size: 2.1rem; margin-bottom: 8px; animation: pulse 3s infinite; }
