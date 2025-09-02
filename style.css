@@ -1,160 +1,197 @@
-/* ======= Original styling restored (kept your look) ======= */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: #2e2e2e;
-      background: linear-gradient(-45deg, #f8c8dc, #a6d8ff, #d8b4fe, #c0eaff);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      overflow-x: hidden;
-    }
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+  /* ======= Base reset ======= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ======= Scroll progress bar ======= */
-    #progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 5px;
-      width: 0%;
-      background: linear-gradient(90deg, #f8c8dc, #a6d8ff);
-      z-index: 1200;
-      transition: width 0.2s ease;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #2e2e2e;
+  background: linear-gradient(-45deg, #f8c8dc, #a6d8ff, #d8b4fe, #c0eaff);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-x: hidden;
+}
 
-    /* ======= Floating decorative bubbles (keeps them behind content) ======= */
-    .floating {
-      position: fixed;
-      background: rgba(255,255,255,0.45);
-      border-radius: 50%;
-      opacity: 0; /* will fade in */
-      z-index: 0;
-      animation: bubbleFade 1s ease forwards, float 10s infinite ease-in-out;
-      /* animation-delay will be set per-class below (first value is for fade, second for float) */
-    }
-    .floating.f1 { top: 12%; left: 6%; width: 24px; height: 24px; animation-delay: 0s, 0s; }
-    .floating.f2 { top: 48%; left: 82%; width: 32px; height: 32px; animation-delay: 0.35s, 2.7s; }
-    .floating.f3 { top: 78%; left: 28%; width: 16px; height: 16px; animation-delay: 0.6s, 5.8s; }
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    @keyframes float {
-      0%   { transform: translateY(0) scale(1); opacity: 0.6; }
-      50%  { transform: translateY(-46px) scale(1.15); opacity: 1; }
-      100% { transform: translateY(0) scale(1); opacity: 0.6; }
-    }
-    @keyframes bubbleFade {
-      from { opacity: 0; transform: scale(0.85); }
-      to   { opacity: 0.9; transform: scale(1); }
-    }
+/* ======= Scroll progress bar ======= */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 0%;
+  background: linear-gradient(90deg, #f8c8dc, #a6d8ff);
+  z-index: 1200;
+  transition: width 0.2s ease;
+}
 
-    /* ======= Header (restored original look) ======= */
-    header {
-      text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(135deg, #f8c8dc, #a6d8ff, #d8b4fe);
-      border-radius: 0 0 50px 50px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-      position: relative;
-      z-index: 1; /* above floating bubbles */
-    }
-    header h1 { font-size: 3rem; margin: 0; color: #2e2e2e; }
-    header p  { font-size: 1.2rem; margin-top: 10px; font-weight: 500; color: #444; }
+/* ======= Floating decorative bubbles ======= */
+.floating {
+  position: fixed;
+  background: rgba(255,255,255,0.45);
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0; /* will fade in */
+  animation: bubbleFade 1.2s ease forwards, float 10s infinite ease-in-out;
+  will-change: transform, opacity;
+}
+.floating.f1 { top: 12%; left: 6%; width: 24px; height: 24px; animation-delay: 0s, 0s; }
+.floating.f2 { top: 48%; left: 82%; width: 32px; height: 32px; animation-delay: 0.3s, 2.5s; }
+.floating.f3 { top: 78%; left: 28%; width: 16px; height: 16px; animation-delay: 0.6s, 5.5s; }
 
-    /* ======= Sections (glass look, keep your original sizes & spacing) ======= */
-    section {
-      background: rgba(255,255,255,0.7); /* kept from your code */
-      border-radius: 30px;
-      padding: 30px;
-      margin: 30px auto;
-      max-width: 900px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      position: relative;
-      z-index: 1;
-    }
-    section h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 2rem;
-      background: linear-gradient(90deg, #f8c8dc, #a6d8ff);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+@keyframes float {
+  0%   { transform: translateY(0) scale(1); }
+  50%  { transform: translateY(-46px) scale(1.15); }
+  100% { transform: translateY(0) scale(1); }
+}
+@keyframes bubbleFade {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 0.8; transform: scale(1); }
+}
 
-    /* ======= Scroll reveal (keeps your existing reveal behavior, toggles every time) ======= */
-    .reveal { opacity: 0; transform: translateY(50px) scale(0.8); transition: all 1s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
+/* ======= Header ======= */
+header {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #f8c8dc, #a6d8ff, #d8b4fe);
+  border-radius: 0 0 50px 50px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: relative;
+  z-index: 1;
+}
+header h1 { font-size: 3rem; margin: 0; color: #2e2e2e; }
+header p  { font-size: 1.2rem; margin-top: 10px; font-weight: 500; color: #444; }
 
-    /* ======= Programs (kept your style, improved hover smoothness slightly) ======= */
-    .programs { text-align: center; margin-top: 20px; }
-    .program {
-      display: inline-block;
-      position: relative;
-      background: linear-gradient(135deg, #a6d8ff, #f8c8dc);
-      padding: 20px 30px;
-      margin: 15px;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1rem;
-      color: #2e2e2e;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: all 0.5s ease-in-out; /* smoother than 5s but still gentle */
-      cursor: pointer;
-      overflow: hidden;
-      z-index: 1;
-    }
-    .program:hover {
-      animation: blobFlow 4s ease-in-out infinite;
-      background: linear-gradient(135deg, #d8eaff, #f9d8eb);
-      color: #2e2e2e;
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-    }
-  @keyframes blobFlowFull {
-    0%   { border-radius: 60% 40% 50% 70% / 50% 60% 40% 60%; }
-    10%  { border-radius: 65% 35% 60% 40% / 45% 65% 55% 35%; }
-    20%  { border-radius: 55% 45% 70% 30% / 60% 40% 70% 50%; }
-    30%  { border-radius: 70% 30% 50% 60% / 55% 65% 45% 35%; }
-    40%  { border-radius: 50% 70% 40% 60% / 65% 45% 35% 55%; }
-    50%  { border-radius: 40% 60% 70% 50% / 70% 50% 60% 40%; }
-    60%  { border-radius: 65% 35% 55% 45% / 35% 55% 65% 45%; }
-    70%  { border-radius: 55% 45% 60% 40% / 60% 50% 40% 70%; }
-    80%  { border-radius: 70% 40% 50% 60% / 40% 70% 50% 60%; }
-    90%  { border-radius: 65% 55% 65% 35% / 55% 35% 65% 45%; }
-    100% { border-radius: 70% 40% 50% 70% / 50% 60% 40% 70%; }
-  }
+/* ======= Sections ======= */
+section {
+  background: rgba(255,255,255,0.7);
+  border-radius: 30px;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 900px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  position: relative;
+  z-index: 1;
+}
+section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  background: linear-gradient(90deg, #f8c8dc, #a6d8ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    /* program icon pulse (small) */
-    .program .icon { display:block; font-size: 2.1rem; margin-bottom: 8px; animation: pulse 3s infinite; }
-    @keyframes pulse { 0%,100% { transform: scale(1.2); } 50% { transform: scale(1.8); } }
+/* ======= Scroll reveal ======= */
+.reveal { opacity: 0; transform: translateY(50px) scale(0.8); transition: all 1s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
 
-    /* tooltip info inside each program (kept your style) */
-    .info { opacity: 0; max-height: 0; transition: all 0.9s ease; font-size: 0.9rem; font-weight: 400; margin-top: 10px; color: #333; }
-    .program:hover .info { opacity: 1; max-height: 200px; }
+/* ======= Programs ======= */
+.programs { text-align: center; margin-top: 20px; }
+.program {
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(135deg, #a6d8ff, #f8c8dc);
+  padding: 20px 30px;
+  margin: 15px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #2e2e2e;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  will-change: transform;
+}
+.program:hover {
+  animation: blobFlow 20s ease-in-out infinite;
+  background: linear-gradient(135deg, #d8eaff, #f9d8eb);
+  color: #2e2e2e;
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
 
-    /* ======= Back button (restored into footer as before, and styled) ======= */
-    footer {
-      background: linear-gradient(135deg, #f8c8dc, #a6d8ff, #d8b4fe);
-      color: #2e2e2e;
-      padding: 20px;
-      border-radius: 30px 30px 0 0;
-      text-align: center;
-      font-size: 0.95rem;
-      font-weight: 500;
-      box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
-      margin-top: 60px;
-      position: relative;
-      z-index: 1;
-    }
+@keyframes blobFlow {
+  0%   { border-radius: 40% 60% 55% 45% / 60% 50% 40% 70%; }
+  5%   { border-radius: 62% 38% 50% 50% / 55% 65% 45% 35%; }
+  10%  { border-radius: 70% 30% 45% 55% / 55% 65% 35% 45%; }
+  15%  { border-radius: 58% 42% 65% 35% / 60% 40% 70% 30%; }
+  20%  { border-radius: 50% 50% 70% 30% / 40% 60% 70% 50%; }
+  25%  { border-radius: 65% 35% 60% 40% / 65% 45% 35% 55%; }
+  30%  { border-radius: 60% 40% 50% 50% / 70% 30% 60% 40%; }
+  35%  { border-radius: 55% 45% 35% 65% / 50% 70% 40% 60%; }
+  40%  { border-radius: 65% 35% 40% 60% / 55% 35% 65% 45%; }
+  45%  { border-radius: 70% 30% 60% 40% / 45% 65% 55% 35%; }
+  50%  { border-radius: 60% 40% 55% 45% / 70% 50% 40% 60%; }
+  55%  { border-radius: 68% 32% 42% 58% / 60% 40% 55% 45%; }
+  60%  { border-radius: 65% 35% 35% 65% / 55% 65% 45% 55%; }
+  65%  { border-radius: 58% 42% 55% 45% / 65% 35% 55% 45%; }
+  70%  { border-radius: 60% 40% 35% 65% / 65% 35% 55% 45%; }
+  75%  { border-radius: 72% 28% 50% 50% / 55% 45% 65% 35%; }
+  80%  { border-radius: 70% 30% 55% 45% / 45% 65% 55% 35%; }
+  85%  { border-radius: 62% 38% 60% 40% / 60% 40% 50% 60%; }
+  90%  { border-radius: 55% 45% 60% 40% / 60% 40% 50% 60%; }
+  95%  { border-radius: 48% 52% 68% 32% / 52% 68% 42% 58%; }
+  100% { border-radius: 40% 60% 55% 45% / 60% 50% 40% 70%; }
+}
 
-    /* small responsiveness */
-    @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      .program { width: auto; display: block; margin: 12px auto; }
-    }
+}
+
+
+/* program icon pulse */
+.program .icon {
+  display: block;
+  font-size: 2.1rem;
+  margin-bottom: 8px;
+  animation: pulse 3s infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1.2); }
+  50%     { transform: scale(1.8); }
+}
+
+/* tooltip info inside each program */
+.info {
+  opacity: 0;
+  max-height: 0;
+  transition: all 0.9s ease;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-top: 10px;
+  color: #222; /* darkened for better contrast */
+}
+.program:hover .info { opacity: 1; max-height: 200px; }
+
+/* ======= Footer ======= */
+footer {
+  background: linear-gradient(135deg, #f8c8dc, #a6d8ff, #d8b4fe);
+  color: #2e2e2e;
+  padding: 20px;
+  border-radius: 30px 30px 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.08);
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ======= Responsiveness ======= */
+@media (max-width: 900px) {
+  section { margin: 20px; padding: 20px; }
+  .program { padding: 18px 24px; margin: 12px; }
+}
+@media (max-width: 600px) {
+  header h1 { font-size: 2rem; }
+  .program { width: auto; display: block; margin: 12px auto; }
+}
